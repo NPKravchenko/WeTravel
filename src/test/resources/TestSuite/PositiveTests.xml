@@ -1,0 +1,17 @@
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="PositiveTestSuite" verbose="1" >
+	<test name="PositiveTests">
+		<parameter name="browser" value="chrome"></parameter>
+		<parameter name="destination" value="San Francisco"></parameter>
+		<parameter name="startDate" value="15-03-2021"></parameter>
+		<parameter name="endDate" value="30-05-2022"></parameter>
+		<classes>
+			<class name="com.wetravel.test.PositiveTests">
+			</class>
+		</classes>
+	</test>
+
+</suite>
+

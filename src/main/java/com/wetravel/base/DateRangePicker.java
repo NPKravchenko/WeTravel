@@ -15,6 +15,7 @@ import java.util.NoSuchElementException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -61,6 +62,46 @@ public class DateRangePicker {
 		}
 		
 		return true;
+	}
+	
+	public boolean ensureStartDate(String textDate) {
+		//expected date format is dd-mm-yyy
+		
+		Date date = null;
+		try {
+			date = new SimpleDateFormat("dd-MM-yyyy").parse(textDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		
+		int day = cal.get(Calendar.DAY_OF_MONTH);
+		int month = cal.get(Calendar.MONTH)+1;
+		int year = cal.get(Calendar.YEAR);
+		return ensureStartDate(day, month, year);	
+	}
+	
+	public boolean ensureEndDate(String textDate) {
+		//expected date format is dd-mm-yyy
+		
+		Date date = null;
+		try {
+			date = new SimpleDateFormat("dd-MM-yyyy").parse(textDate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		
+		int day = cal.get(Calendar.DAY_OF_MONTH);
+		int month = cal.get(Calendar.MONTH)+1;
+		int year = cal.get(Calendar.YEAR);
+		return ensureEndDate(day, month, year);	
 	}
 	
 	public boolean ensureEndDate(int day, int month, int year) {
@@ -232,9 +273,9 @@ private WebElement findFirstMonth(String prevText) {
 		
 		public Boolean apply(Pair<WebDriver, String> pair ) {
 			String text = pair.first().findElement(By.xpath(_firstMonthXPath)).getText();
-			System.out.println("Prev: "+ pair.second() +" now: " + text);
+			//System.out.println("Prev: "+ pair.second() +" now: " + text);
 			boolean res = !text.isEmpty() && 0!=text.compareTo(pair.second());
-			System.out.println("Res: "+ String.valueOf(res));
+			//System.out.println("Res: "+ String.valueOf(res));
 			return res;
 		}
 	});
