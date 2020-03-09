@@ -5,8 +5,8 @@
 	<test name="PositiveTests">
 		<parameter name="browser" value="chrome"></parameter>
 		<parameter name="destination" value="San Francisco"></parameter>
-		<parameter name="startDate" value="15-03-2021"></parameter>
-		<parameter name="endDate" value="30-05-2022"></parameter>
+		<parameter name="startDate" value="30-03-2020"></parameter>
+		<parameter name="endDate" value="30-05-2020"></parameter>
 		<classes>
 			<class name="com.wetravel.test.PositiveTests">
 			</class>

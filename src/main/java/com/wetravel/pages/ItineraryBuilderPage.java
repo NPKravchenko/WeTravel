@@ -22,9 +22,8 @@ public class ItineraryBuilderPage extends BasePageObject {
 		enterText(destination, DestinationLocator);
 	}
 	
-	public ItineraryBuilderPage clickOnNextButton() {
+	public void clickOnNextButton() {
 		System.out.println("Clicking Next on Itinerary Builder Page");
 		click(NextButtonLocator);
-		return new ItineraryBuilderPage(driver);
 	}
 }

@@ -19,11 +19,10 @@ public class StartPage extends BasePageObject{
 		System.out.println("WeTravel is opened");
 	}
 
-	public ItineraryBuilderPage clickTryForFreeButton() {
+	public void clickTryForFreeButton() {
 		System.out.println("Opening Try For Free Page .");
 		click(TryForFreeLocator);
 		System.out.println("Try For Free Page is opened.");
-		return new ItineraryBuilderPage(driver);
 	}
 	
 			
